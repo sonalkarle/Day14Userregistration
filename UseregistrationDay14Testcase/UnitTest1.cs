@@ -17,7 +17,7 @@ namespace NUnitTestProject
         /// TC-1 Throw Custom Exception for Invalid FirstName
         /// </summary>
         [TestCase("Sonal")]
-        [TestCase("Sona")]
+        [TestCase("So")]
         public void Given_firstName_ThrowCustomException(string firstName)
         {
             string actual = " ";

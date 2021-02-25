@@ -9,41 +9,41 @@ using System.Text.RegularExpressions;
         public class UserRegistrationTestLambda
         {
             string firstNameregex = "^[A-Z]{1}[a-z]{2,}$";
-        public bool firstName(string regexfirstName) => Regex.IsMatch(regexfirstName, firstNameregex);
+        public bool firstName(string patternFirstName) => Regex.IsMatch(patternFirstName, firstNameregex);
         /// <summary>
         /// FirstName Custom Exception
         /// </summary>
         /// <param name="patternFirstName"></param>
         /// <returns></returns>
-        public string firstNameLambda(string regexfirstName)
+        public string firstNameLambda(string patternFirstName)
         {
-            bool result = firstName(regexfirstName);
+            bool result = firstName(patternFirstName);
             try
             {
                 if (result == false)
                 {
 
-                    if (regexfirstName.Equals(string.Empty))
+                    if (patternFirstName.Equals(string.Empty))
                     {
                         throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "FirstName should not be empty");
                     }
 
 
-                    if (regexfirstName.Length < 3)
+                    if (patternFirstName.Length < 3)
                     {
                         throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LESSTHAN_MINIMUM_LENGTH, "FirstName should contains atleast three characters");
 
                     }
 
-                    if (regexfirstName.Any(char.IsDigit))
+                    if (patternFirstName.Any(char.IsDigit))
                     {
                         throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_NUMBER, "FirstName should not contains number");
                     }
-                    if (!char.IsUpper(regexfirstName[0]))
+                    if (!char.IsUpper(patternFirstName[0]))
                     {
                         throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LOWERCASE, "FirstName first letter should not be a lowercase");
                     }
-                    if (regexfirstName.Any(char.IsLetterOrDigit))
+                    if (patternFirstName.Any(char.IsLetterOrDigit))
                     {
                         throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "FirstName should not contains special characters");
                     }
