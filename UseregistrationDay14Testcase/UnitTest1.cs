@@ -48,45 +48,8 @@ namespace NUnitTestProject
                 Assert.AreEqual("LastName should contains atleast three characters", exception.Message);
             }
         }
-
         /// <summary>
-        /// TC-3 Throw Custom Exception for Invalid MobileNumber
-        /// </summary>
-        [TestCase("91 9702420754")]
-        [TestCase("")]
-        public void Given_MobileNumber_Expecting_ThrowCustomException(string mobileNumber)
-        {
-            
-            try
-            {
-               string  actual = userRegistration.mobileNumberLambda(mobileNumber);
-            }
-            catch (UserRegistrationTestCustomException exception)
-            {
-                Assert.AreEqual("MobileNumber should not be empty", exception.Message);
-            }
-        }
-
-        /// <summary>
-        /// TC-4 Throw Custom Exception for Invalid Password
-        /// </summary>
-        [TestCase("Sonak451##")]
-        [TestCase("")]
-        public void Given_Password_Expecting_ThrowCustomException(string password)
-        {
-            
-            try
-            {
-               string actual = userRegistration.passwordLambda(password);
-            }
-            catch (UserRegistrationTestCustomException exception)
-            {
-                Assert.AreEqual("Password should not be empty", exception.Message);
-            }
-        }
-
-        /// <summary>
-        /// TC-5 Throw Custom Exception for Invalid Email
+        /// TC-3 Throw Custom Exception for Invalid Email
         /// </summary>
         [TestCase("abc@yahoo.com")]
         [TestCase("abc-100@yahoo.com,")]
@@ -112,16 +75,54 @@ namespace NUnitTestProject
         [TestCase("abc@gmail.com.aa.au")]
         public void Given_Email_Expecting_ThrowCustomException(string email)
         {
-            
+
             try
             {
-              string actual = userRegistration.emailLambda(email);
+                string actual = userRegistration.emailLambda(email);
             }
             catch (UserRegistrationTestCustomException exception)
             {
                 Assert.AreEqual("Email should contains special characters", exception.Message);
             }
         }
+
+        /// <summary>
+        /// TC-4 Throw Custom Exception for Invalid MobileNumber
+        /// </summary>
+        [TestCase("91 9702420754")]
+        [TestCase("")]
+        public void Given_MobileNumber_Expecting_ThrowCustomException(string mobileNumber)
+        {
+            
+            try
+            {
+               string  actual = userRegistration.mobileNumberLambda(mobileNumber);
+            }
+            catch (UserRegistrationTestCustomException exception)
+            {
+                Assert.AreEqual("MobileNumber should not be empty", exception.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-5 Throw Custom Exception for Invalid Password
+        /// </summary>
+        [TestCase("Sonak451##")]
+        [TestCase("")]
+        public void Given_Password_Expecting_ThrowCustomException(string password)
+        {
+            
+            try
+            {
+               string actual = userRegistration.passwordLambda(password);
+            }
+            catch (UserRegistrationTestCustomException exception)
+            {
+                Assert.AreEqual("Password should not be empty", exception.Message);
+            }
+        }
+
+      
 
     }
 }
