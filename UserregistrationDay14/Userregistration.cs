@@ -118,6 +118,40 @@ namespace UserRegistrationLambda
             return "LastName is not valid";
         }
 
+       
+       
+        /// <summary>
+        /// Email Custom Exception
+        /// </summary>
+        /// <param name="patternEmail"></param>
+        /// <returns></returns>
+        public string emailLambda(string patternEmail)
+        {
+            bool result = email(patternEmail);
+            try
+            {
+                if (result == false)
+                {
+
+                    if (patternEmail.Equals(string.Empty))
+                    {
+                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "Email should not be empty");
+                    }
+                    if (!patternEmail.Any(char.IsLetterOrDigit))
+                    {
+                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "Email should contains special characters");
+                    }
+
+                }
+            }
+
+            catch (UserRegistrationTestCustomException exception)
+            {
+                throw exception;
+            }
+            return "Email is not valid";
+        }
+
         /// <summary>
         /// MobileNumber Custom Exception
         /// </summary>
@@ -162,87 +196,6 @@ namespace UserRegistrationLambda
             }
             return "MobileNumber is not valid";
         }
-
-        /// <summary>
-        /// Password Custom Exception
-        /// </summary>
-        /// <param name="patternPassword"></param>
-        /// <returns></returns>
-        public string passwordLambda(string patternPassword)
-        {
-            bool result = password(patternPassword);
-            try
-            {
-                if (result == false)
-                {
-
-                    if (patternPassword.Equals(string.Empty))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "Password should not be empty");
-                    }
-
-
-                    if (patternPassword.Length < 8)
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LESSTHAN_MINIMUM_LENGTH, "Password should contains atleast eight characters");
-
-                    }
-
-                    if (!patternPassword.Any(char.IsDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_NUMBER, "Password should contains number");
-                    }
-                    if (!char.IsUpper(patternPassword[0]))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LOWERCASE, "Password first letter should not be a lowercase");
-                    }
-                    if (!patternPassword.Any(char.IsLetterOrDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "Password should contains special characters");
-                    }
-
-                }
-            }
-
-            catch (UserRegistrationTestCustomException exception)
-            {
-                throw exception;
-            }
-            return "Password is not valid";
-        }
-
-        /// <summary>
-        /// Email Custom Exception
-        /// </summary>
-        /// <param name="patternEmail"></param>
-        /// <returns></returns>
-        public string emailLambda(string patternEmail)
-        {
-            bool result = email(patternEmail);
-            try
-            {
-                if (result == false)
-                {
-
-                    if (patternEmail.Equals(string.Empty))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "Email should not be empty");
-                    }
-                    if (!patternEmail.Any(char.IsLetterOrDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "Email should contains special characters");
-                    }
-
-                }
-            }
-
-            catch (UserRegistrationTestCustomException exception)
-            {
-                throw exception;
-            }
-            return "Email is not valid";
-        }
-
 
 
     }

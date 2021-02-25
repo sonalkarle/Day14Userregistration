@@ -50,42 +50,6 @@ namespace NUnitTestProject
         }
 
         /// <summary>
-        /// TC-3 Throw Custom Exception for Invalid MobileNumber
-        /// </summary>
-        [TestCase("91 9702420754")]
-        [TestCase("")]
-        public void Given_MobileNumber_Expecting_ThrowCustomException(string mobileNumber)
-        {
-            
-            try
-            {
-               string  actual = userRegistration.mobileNumberLambda(mobileNumber);
-            }
-            catch (UserRegistrationTestCustomException exception)
-            {
-                Assert.AreEqual("MobileNumber should not be empty", exception.Message);
-            }
-        }
-
-        /// <summary>
-        /// TC-4 Throw Custom Exception for Invalid Password
-        /// </summary>
-        [TestCase("Sonak451##")]
-        [TestCase("")]
-        public void Given_Password_Expecting_ThrowCustomException(string password)
-        {
-            
-            try
-            {
-               string actual = userRegistration.passwordLambda(password);
-            }
-            catch (UserRegistrationTestCustomException exception)
-            {
-                Assert.AreEqual("Password should not be empty", exception.Message);
-            }
-        }
-
-        /// <summary>
         /// TC-5 Throw Custom Exception for Invalid Email
         /// </summary>
         [TestCase("abc@yahoo.com")]
@@ -120,6 +84,23 @@ namespace NUnitTestProject
             catch (UserRegistrationTestCustomException exception)
             {
                 Assert.AreEqual("Email should contains special characters", exception.Message);
+            }
+        }
+        /// <summary>
+        /// TC-3 Throw Custom Exception for Invalid MobileNumber
+        /// </summary>
+        [TestCase("91 9702420754")]
+        [TestCase("")]
+        public void Given_MobileNumber_Expecting_ThrowCustomException(string mobileNumber)
+        {
+
+            try
+            {
+                string actual = userRegistration.mobileNumberLambda(mobileNumber);
+            }
+            catch (UserRegistrationTestCustomException exception)
+            {
+                Assert.AreEqual("MobileNumber should not be empty", exception.Message);
             }
         }
 
