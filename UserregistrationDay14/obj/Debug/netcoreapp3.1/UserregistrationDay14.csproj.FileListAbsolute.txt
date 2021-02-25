@@ -1,0 +1,13 @@
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.exe
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.deps.json
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.runtimeconfig.json
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.runtimeconfig.dev.json
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.dll
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\bin\Debug\netcoreapp3.1\UserregistrationDay14.pdb
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.AssemblyInfo.cs
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.dll
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.pdb
+C:\Users\User\source\repos\Advance C#-2\UserregistrationDay14\UserregistrationDay14\UserregistrationDay14\obj\Debug\netcoreapp3.1\UserregistrationDay14.genruntimeconfig.cache
