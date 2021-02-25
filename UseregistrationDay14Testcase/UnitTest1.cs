@@ -1,18 +1,36 @@
 using NUnit.Framework;
+using UserRegistrationLambda;
 
-namespace UseregistrationDay14Testcase
+namespace NUnitTestProject
 {
     public class Tests
     {
+
+        UserRegistrationTestLambda userRegistration;
         [SetUp]
         public void Setup()
         {
+            userRegistration = new UserRegistrationTestLambda();
         }
 
-        [Test]
-        public void Test1()
+        /// <summary>
+        /// TC-1 Throw Custom Exception for Invalid FirstName
+        /// </summary>
+        [TestCase("Sonal")]
+        [TestCase("Sona")]
+        public void Given_firstName_ThrowCustomException(string firstName)
         {
-            Assert.Pass();
+            string actual = " ";
+            try
+            {
+                actual = userRegistration.firstNameLambda(firstName);
+            }
+            catch (UserRegistrationTestCustomException exception)
+            {
+                Assert.AreEqual("FirstName should contains atleast three characters", exception.Message);
+            }
         }
+
+
     }
 }
