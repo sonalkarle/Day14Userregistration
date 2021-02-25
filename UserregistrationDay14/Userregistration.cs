@@ -12,13 +12,11 @@ namespace UserRegistrationLambda
         string firstNameregex = "^[A-Z]{1}[a-z]{2,}$";
         string lastNameregex = "^[A-Z]{1}[a-z]{2,}$";
         string emailregex = "^[0-9a-zA-Z]+([._+-]?[0-9a-zA-Z]+)*@[0-9A-Za-z]+.([c]{1}[o]{1}[m]{1})*([n]{1}[e]{1}[t]{1})*[,]*([.][a]{1}[u]{1})*([.][c]{1}[o]{1}[m]{1})*$";
-        string mobileNumberregex = "^[9]{1}[1]{1}[ ][0-9]{10}$";
-        string passwordregex = "^[A-Z]{1}[a-zA-Z]{7,}([0-9]+)[@#$%^&*+-_]{1}$";
+        
 
         public bool firstName(string patternFirstName) => Regex.IsMatch(patternFirstName, firstNameregex);
         public bool lastName(string patternLastName) => Regex.IsMatch(patternLastName, lastNameregex);
-        public bool mobileNumber(string patternMobileNumber) => Regex.IsMatch(patternMobileNumber, mobileNumberregex);
-        public bool password(string patternPassword) => Regex.IsMatch(patternPassword, passwordregex);
+       
         public bool email(string patternEmail) => Regex.IsMatch(patternEmail, emailregex);
 
 
@@ -118,99 +116,7 @@ namespace UserRegistrationLambda
             return "LastName is not valid";
         }
 
-        /// <summary>
-        /// MobileNumber Custom Exception
-        /// </summary>
-        /// <param name="patternMobileNumber"></param>
-        /// <returns></returns>
-        public string mobileNumberLambda(string patternMobileNumber)
-        {
-            bool result = mobileNumber(patternMobileNumber);
-            try
-            {
-                if (result == false)
-                {
-
-                    if (patternMobileNumber.Equals(string.Empty))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "MobileNumber should not be empty");
-                    }
-
-
-                    if (patternMobileNumber.Length < 13)
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LESSTHAN_MINIMUM_LENGTH, "MobileNumber should contains thirteen characters");
-
-                    }
-
-                    if (patternMobileNumber.Any(char.IsLetter))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_NUMBER, "MobileNumber should not contains letters");
-                    }
-
-                    if (patternMobileNumber.Any(char.IsLetterOrDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "MobileNumber should not contains special characters");
-                    }
-
-                }
-            }
-
-            catch (UserRegistrationTestCustomException exception)
-            {
-                throw exception;
-            }
-            return "MobileNumber is not valid";
-        }
-
-        /// <summary>
-        /// Password Custom Exception
-        /// </summary>
-        /// <param name="patternPassword"></param>
-        /// <returns></returns>
-        public string passwordLambda(string patternPassword)
-        {
-            bool result = password(patternPassword);
-            try
-            {
-                if (result == false)
-                {
-
-                    if (patternPassword.Equals(string.Empty))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_EMPTY, "Password should not be empty");
-                    }
-
-
-                    if (patternPassword.Length < 8)
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LESSTHAN_MINIMUM_LENGTH, "Password should contains atleast eight characters");
-
-                    }
-
-                    if (!patternPassword.Any(char.IsDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_NUMBER, "Password should contains number");
-                    }
-                    if (!char.IsUpper(patternPassword[0]))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_LOWERCASE, "Password first letter should not be a lowercase");
-                    }
-                    if (!patternPassword.Any(char.IsLetterOrDigit))
-                    {
-                        throw new UserRegistrationTestCustomException(UserRegistrationTestCustomException.ExceptionType.ENTERED_SPECIAL_CHARACTER, "Password should contains special characters");
-                    }
-
-                }
-            }
-
-            catch (UserRegistrationTestCustomException exception)
-            {
-                throw exception;
-            }
-            return "Password is not valid";
-        }
-
+      
         /// <summary>
         /// Email Custom Exception
         /// </summary>
