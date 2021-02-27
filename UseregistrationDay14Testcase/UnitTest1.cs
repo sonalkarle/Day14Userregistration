@@ -10,7 +10,7 @@ namespace NUnitTestProject
         [SetUp]
         public void Setup()
         {
-            userRegistration = new UserRegistrationTestLambda();
+            userRegistration = new UserRegistrationTestLambda() ;
         }
 
         /// <summary>
